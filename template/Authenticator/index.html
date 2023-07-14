@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="news.asp">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            {% if user.is_authenticated %}
+            <li class="right-corner"><a href="signout">Logout</a></li>
+            {% else %}
+            <li class="right-corner"><a href="signin">Sign In</a></li>
+            <li class="right-corner"><a href="signup">Sign Up</a></li>
+            {% endif %} 
+            </ul>
+        </nav>
+        <section id="home">
+        </section>
+        <div class="data">
+            <h1>Discover the perfect pet</h1>
+            <p>Find your ideal companion with out cat dog classifier. Get matched with
+                your perfect furry friend today!
+            </p>
+            <a href="#service" ><button type="submit" class="explore-button">Exlpore</button></a>
+        </div>
+
+        <section id="service" class="service-section">
+            <div class="img">
+                <img src="{% static 'images/husky.jpg' %}" alt="">
+                <h3>Classification</h3>
+                <p>Out advanced technology helps classify accurately and quicky</p>
+                <button style="color: black;" class="cool-button" onclick="window.location.href='{% url 'main' %}'">Try now</button>
+            </div>
+            <div class="img">
+                <img src="{% static 'images/dog.jpg' %}" alt="">
+                <h3>Customize</h3>
+                <p>Our service can be tailored to meet your specific needs</p>
+                <button style="color: black;" class="cool-button">Customize</button>
+            </div>
+            <div class="img">
+                <img src="{% static 'images/cat.jpg' %}" alt="">
+                <h3>Customer service</h3>
+                <p>Our team of experts is always available</p>
+                <button style="color: black;" class="cool-button">Call </button>
+            </div>
+        </section>
+
+     
+    </body>
+</html>
